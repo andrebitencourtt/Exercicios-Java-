@@ -1,0 +1,50 @@
+package interfaceGrafica;
+
+import javax.swing.JOptionPane;
+
+import progPrincipal.EntradaSaida;
+import classesObjetosConta.Conta;
+import classesObjetosConta.Movimentacao;
+
+public class MenuOpcoes {
+
+	Conta conta = new Conta();
+	EntradaSaida entradaSaida = new EntradaSaida();
+	Movimentacao movimentacao = new Movimentacao();
+	
+	public void exibirMenu(){
+		while(true){
+
+			int acao = Integer.parseInt(JOptionPane.showInputDialog("Escolha uma das opcoes abaixo: \n"
+					+ "1 - Depositar \n"
+					+ "2 - Sacar \n"
+					+ "3 - Consultar Saldo \n" 
+					+ "4 - Extrato \n"
+					+ "5 - Extrato Depositos \n"
+					+ "6 - Extrato Saques \n"
+					+ "7 - Sair"));
+
+			switch(acao){
+			case 1:
+				entradaSaida.infoDeposito(conta, movimentacao);
+				break;
+			case 2:
+				entradaSaida.infoSaque(conta);
+				break;
+			case 3:
+				entradaSaida.infoSaldo(conta);
+				break;
+			case 4:
+				
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				System.exit(0);
+				break;
+			}
+		}
+	}
+}

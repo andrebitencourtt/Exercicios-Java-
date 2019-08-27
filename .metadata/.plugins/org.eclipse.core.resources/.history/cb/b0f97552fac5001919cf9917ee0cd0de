@@ -1,0 +1,76 @@
+package classesObjetosConta;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Conta {
+
+	//private List<Conta> ListaDeMovimentacao = new ArrayList();
+
+	private String titularDaConta;
+
+	private int status; //1-Conta Corrente  2-Conta Poupanca
+
+	private double saldo = 50;
+
+	//===============================================================
+
+	public String gettitularDaConta(){
+		return titularDaConta;
+	}
+
+	public void settitularDaConta(String titularDaConta){
+		this.titularDaConta = titularDaConta;
+	}
+
+	public int getstatus(){
+		return status;
+	}
+
+	public void setstatus(int status){
+		this.status = status;
+	}
+
+	public double getsaldo(){
+		return saldo;
+	}
+
+	public void depositar(Double valor){
+		this.saldo = valor;
+	}
+
+	public void sacar(double saldo){
+		this.saldo = saldo;
+	}
+
+	public String consultarSaldo(){
+		String msg;
+
+		msg = "Titular da conta: "+titularDaConta+"\n";
+
+		if(status == 1){
+			msg += "tipo da conta: Conta Corrente \n";
+			System.out.println("corrente");
+		}else if(status == 2){
+			System.out.println("poupanca");
+			msg += "tipo da conta: Conta Poupanca \n";
+		}
+
+		msg += "Saldo: "+saldo;
+
+		return msg;
+	}
+
+	public void gerarExtrato(){
+
+	}
+
+	public void gerarExtratoDepositos(){
+
+	}
+
+	public void gerarExtratoSaques(){
+
+	}
+
+}

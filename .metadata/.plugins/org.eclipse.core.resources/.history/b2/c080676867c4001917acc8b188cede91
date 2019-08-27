@@ -1,0 +1,13 @@
+package classesObjetosConta;
+
+import java.util.Date;
+
+public class movimentacao {
+	
+	private int status;
+	
+	private double valor;
+	
+	private Date data;
+	
+}

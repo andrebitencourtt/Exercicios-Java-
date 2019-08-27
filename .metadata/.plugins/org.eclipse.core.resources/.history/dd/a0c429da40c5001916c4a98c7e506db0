@@ -1,0 +1,77 @@
+package interfaceGrafica;
+
+import javax.swing.JOptionPane;
+
+import classesObjetosConta.Conta;
+
+public class EntradaSaida {
+
+	public static void infoDeposito(){
+		
+		Conta conta = new Conta();
+		
+		String titularDaConta = JOptionPane.showInputDialog("Informe o titular da conta: ");
+
+		int tipo = Integer.parseInt(JOptionPane.showInputDialog("Informe o tipo da operacao: \n"
+				+ "1 - Conta Corrente \n"
+				+ "2 - Conta Poupanca"));
+
+		while(tipo <= 0 || tipo > 2)
+		{
+			JOptionPane.showMessageDialog(null, "Opcao invalida!", "Erro: ", JOptionPane.WARNING_MESSAGE);
+			tipo = Integer.parseInt(JOptionPane.showInputDialog("Informe o tipo da operacao: \n"
+					+ "1 - Conta Corrente \n"
+					+ "2 - Conta Poupanca"));
+		}
+
+		double valor = Double.parseDouble(JOptionPane.showInputDialog("Informe o valor para deposito: "));
+
+		while(valor <= 0)
+		{
+			JOptionPane.showConfirmDialog(null, "Deposito nao realizado! \n"
+					+ "Realize um deposito maior que zero!", "Erro", JOptionPane.WARNING_MESSAGE);
+			valor = Double.parseDouble(JOptionPane.showInputDialog("Informe o valor para deposito: "));
+		}
+		MenuOpcoes.deposito(tipo, valor);
+		
+		conta.settitularDaConta(titularDaConta);
+
+		JOptionPane.showMessageDialog(null, "Deposito realizado com sucesso!");
+	}
+
+	public static void infoSaque(){
+		
+		Conta conta = new Conta();
+		
+		double valor = Double.parseDouble(JOptionPane.showInputDialog("Informe o valor para o saque: "));
+
+		while(valor <= 0)
+		{
+			JOptionPane.showConfirmDialog(null, "Saque nao realizado! \n"
+					+ "Realize um saque maior que zero!", "Erro", JOptionPane.WARNING_MESSAGE);
+			valor = Double.parseDouble(JOptionPane.showInputDialog("Informe o valor para o saque: "));
+		}
+
+		double saldo = MenuOpcoes.saque(valor);
+
+		if(saldo < -1000)
+		{
+			JOptionPane.showMessageDialog(null, "Operacao cancelada! \n"
+					+ "Limite de saque excedido!", "Erro", JOptionPane.WARNING_MESSAGE);
+		}
+		else
+		{
+			conta.sacar(saldo);
+			JOptionPane.showMessageDialog(null, "Saque de R$"+valor+" Realizado com sucesso!");
+		}
+	}
+	
+	public static void infoSaldo(){
+		Conta conta = new Conta();
+		
+		JOptionPane.showMessageDialog(null, "Titular da conta: \n"
+				+ "# "+conta.gettitularDaConta()+"\n"
+				+ "Saldo da conta: "+conta.getsaldo());
+	}
+
+}

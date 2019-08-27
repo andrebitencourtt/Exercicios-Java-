@@ -1,0 +1,36 @@
+package classesObjetosConta;
+
+import java.util.Date;
+
+public class movimentacao {
+	
+	private int status; //1-Conta Corrente  2-Conta Poupanca
+	
+	private double valor;
+	
+	private Date data;
+	
+	public int getstatus(){
+		return status;
+	}
+	
+	public void setstatus(int status){
+		this.status = status;
+	}
+	
+	public double getvalor(){
+		return valor;
+	}
+	
+	public void setvalor(double valor){
+		this.valor = valor;
+	}
+	
+	public Date getdata(){
+		return data;
+	}
+	
+	public void setdata(Date data){
+		this.data = data;
+	}
+}

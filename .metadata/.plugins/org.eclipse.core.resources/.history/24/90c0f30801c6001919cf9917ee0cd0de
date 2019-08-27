@@ -1,0 +1,42 @@
+package classesObjetosConta;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Movimentacao {
+	
+	private List<Movimentacao> listaDeMovimentacao = new ArrayList();
+	
+	private int status; //1-Deposito  2-Saque
+	
+	private double valor;
+	
+	private String data;
+	
+	//========================================================
+	
+	public int getstatus(){
+		return status;
+	}
+	
+	public void setstatus(int status){
+		this.status = status;
+	}
+	
+	public double getvalor(){
+		return valor;
+	}
+	
+	public void setvalor(double valor){
+		this.valor = valor;
+	}
+	
+	public String getdata(){
+		return data;
+	}
+	
+	public void setdata(Date data){
+		this.data = data;
+	}
+}

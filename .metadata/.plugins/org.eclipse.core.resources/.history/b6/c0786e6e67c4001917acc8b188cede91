@@ -1,0 +1,20 @@
+package classesObjetosConta;
+
+import java.util.Date;
+
+public class movimentacao {
+	
+	private int status;
+	
+	private double valor;
+	
+	private Date data;
+	
+	public int getstatus(int status){
+		return status;
+	}
+	
+	public void setstatus(int status){
+		this.status = status
+	}
+}
